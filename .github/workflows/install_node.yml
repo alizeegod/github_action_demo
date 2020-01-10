@@ -1,0 +1,28 @@
+name: install_node
+
+on: 
+    push:
+        branch: 
+            - master
+
+
+
+
+jobs:
+
+    build:
+        name: build
+
+        strategy:
+            matrix:
+                runs-on: [ubuntu-latest, macOS-latest, windows-latest]
+            fail-fast: false
+
+        steps:
+        - name: Checkout
+        uses: actions/checkout@v1
+      
+        - name: Set Node.js 12.x
+        uses: actions/setup-node@master
+        with:
+            node-version: 12.x
