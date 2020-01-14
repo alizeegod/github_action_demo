@@ -1,0 +1,22 @@
+name: deploy
+
+on: [push]
+
+jobs:
+
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+
+            name: set-node
+            uses: actions/setup-node@master
+            with:
+                node-version: 12.x
+
+
+            name: install
+            run: npm install
+
+            name: echo
+            run: echo 'alizeegod'
