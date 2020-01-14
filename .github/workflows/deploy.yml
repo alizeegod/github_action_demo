@@ -10,13 +10,13 @@ jobs:
         steps:
 
             name: set-node
-            uses: actions/setup-node@master
-            with:
-                node-version: 12.x
+                uses: actions/setup-node@master
+                with:
+                    node-version: 12.x
 
 
             name: install
-            run: npm install
+                run: npm install
 
             name: echo
-            run: echo 'alizeegod'
+                run: echo 'alizeegod'
