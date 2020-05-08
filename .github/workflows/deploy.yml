@@ -17,7 +17,7 @@ jobs:
                   args: git submodule update --init --recursive
 
             - name: Deploy
-                  uses: easingthemes/ssh-deploy@v2.0.7
+                  uses: easingthemes/ssh-deploy@v2.1.2
                   env:
                       SSH_PRIVATE_KEY: ${{ secrets.ACCESS_TOKEN }}
                       ARGS: "-avz --delete"
