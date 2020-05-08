@@ -27,11 +27,11 @@ jobs:
               env:
                   CI: true
             - name: Deploy
-                  uses: easingthemes/ssh-deploy@v2.1.2
-                  env:
-                      SSH_PRIVATE_KEY: ${{ secrets.ACCESS_TOKEN }}
-                      ARGS: "-avz --delete"
-                      SOURCE: "dist/"
-                      REMOTE_HOST: "118.190.209.112"
-                      REMOTE_USER: "root"
-                      TARGET: "/home/wwwroot/githubaction"
+              uses: easingthemes/ssh-deploy@v2.1.2
+              env:
+                  SSH_PRIVATE_KEY: ${{ secrets.ACCESS_TOKEN }}
+                  ARGS: "-avz --delete"
+                  SOURCE: "dist/"
+                  REMOTE_HOST: "118.190.209.112"
+                  REMOTE_USER: "root"
+                  TARGET: "/home/wwwroot/githubaction"
