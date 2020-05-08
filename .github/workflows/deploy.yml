@@ -32,15 +32,13 @@ jobs:
                   SSH_PRIVATE_KEY: ${{ secrets.ACCESS_TOKEN }}
                   ARGS: "-avz --delete"
                   SOURCE: "dist/"
-                  REMOTE_HOST: "118.190.209.112"
+                  REMOTE_HOST: ${{ secrets.HOST }}
                   REMOTE_USER: "root"
                   TARGET: "/home/wwwroot/githubaction"
             - name: Run a command remotely
               uses: docker://evaneos/ssh-action:0.1.0
               with:
-                hosts: '118.190.209.112'
+                hosts: ${{ secrets.HOST }}
                 user: 'root'
                 private_key: ${{ secrets.ACCESS_TOKEN }}
-                commands: pm2 reload rsshub
-            #- name: Build
-              #run: ssh -q -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@118.190.209.112 "pm2 stop rsshub"
+                commands: pm2 stop rsshub
