@@ -8,15 +8,20 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
+            # 切换分支
+            - name: Checkout
+              uses: actions/checkout@master
+            # 下载 git submodule
+            - uses: srt32/git-actions@v0.0.3
+              with:
+                  args: git submodule update --init --recursive
 
-            name: set-node
-                uses: actions/setup-node@master
-                with:
-                    node-version: 12.x
-
-
-            name: install
-                run: npm install
-
-            name: echo
-                run: echo 'alizeegod'
+            - name: Deploy
+                  uses: easingthemes/ssh-deploy@v2.0.7
+                  env:
+                      SSH_PRIVATE_KEY: ${{ secrets.ACCESS_TOKEN }}
+                      ARGS: "-avz --delete"
+                      SOURCE: "dist/"
+                      REMOTE_HOST: "118.190.209.112"
+                      REMOTE_USER: "root"
+                      TARGET: "/home/wwwroot/githubaction"
