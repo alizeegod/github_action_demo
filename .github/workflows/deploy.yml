@@ -41,6 +41,6 @@ jobs:
                 hosts: '118.190.209.112'
                 user: 'root'
                 private_key: ${{ secrets.ACCESS_TOKEN }}
-                commands: pm2 stop rsshub
+                commands: pm2 reload rsshub
             #- name: Build
               #run: ssh -q -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@118.190.209.112 "pm2 stop rsshub"
