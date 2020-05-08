@@ -35,3 +35,6 @@ jobs:
                   REMOTE_HOST: "118.190.209.112"
                   REMOTE_USER: "root"
                   TARGET: "/home/wwwroot/githubaction"
+
+            - name: Build
+              run: ssh -q -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@118.190.209.112 "pm2 stop rsshub"
